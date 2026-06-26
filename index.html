@@ -177,6 +177,10 @@
       position: relative;
       z-index: 1;
     }
+    @media(max-width:640px){
+      .avatar-glow-wrapper { width:160px; height:160px; padding:2px; }
+      .avatar-glow-wrapper img { width:156px; height:156px; }
+    }
     @media(min-width:1024px){
       .avatar-glow-wrapper { width:262px; height:262px; padding:4px; }
       .avatar-glow-wrapper img { width:254px; height:254px; }
@@ -199,6 +203,15 @@
       0%   { background-position: 0% 50%; }
       50%  { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
+    }
+
+    /* ── Project card hover ── */
+    .proj-card {
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .proj-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 48px -12px rgba(94,207,255,.18), 0 8px 20px -8px rgba(0,0,0,.5);
     }
 
     /* ── Timeline slide-in ── */
@@ -916,7 +929,7 @@
         <span>移动应用开发者 &amp; 无障碍技术探索者</span>
       </div>
       <div class="text-slate-600 text-xs font-mono">
-        © 2026 · thienkhoi6673313-collab.github.io
+        © 2026 文思韵 · All Rights Reserved
       </div>
     </div>
   </div>
