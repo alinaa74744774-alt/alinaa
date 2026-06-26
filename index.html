@@ -342,10 +342,11 @@
       <!-- ── Avatar with animated glow border ── -->
       <div class="flex-shrink-0 fade-up" style="animation-delay:.15s">
         <div class="avatar-glow-wrapper">
-          <img src="./alinaa/avatar.jpg" alt="文思韵">
-        </div>
+          <img src="avatar.jpg" alt="文思韵"
+            onerror="this.style.background='#09090f';this.style.display='flex';this.style.alignItems='center';this.style.justifyContent='center';this.innerText='文';this.style.fontSize='48px';this.style.color='#5ecfff'">
       </div>
     </div>
+      
 
     <!-- Scroll indicator -->
     <div class="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-slate-700">
