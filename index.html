@@ -88,15 +88,17 @@
     @keyframes avatar-glow-anim {
       0%,100% {
         box-shadow:
-          0 0 0 0 rgba(94,207,255,.6),
-          0 0 20px 2px rgba(94,207,255,.35),
-          0 0 48px 6px rgba(94,207,255,.18);
+          0 0 0 0   rgba(94,207,255,.7),
+          0 0 18px 3px rgba(94,207,255,.5),
+          0 0 48px 10px rgba(94,207,255,.28),
+          0 0 100px 20px rgba(94,207,255,.12);
       }
       50% {
         box-shadow:
-          0 0 0 0 rgba(94,207,255,.8),
-          0 0 36px 6px rgba(94,207,255,.55),
-          0 0 80px 14px rgba(94,207,255,.28);
+          0 0 0 0   rgba(94,207,255,.9),
+          0 0 32px 8px rgba(94,207,255,.7),
+          0 0 80px 20px rgba(94,207,255,.4),
+          0 0 140px 40px rgba(94,207,255,.18);
       }
     }
     .avatar-glow {
@@ -149,6 +151,66 @@
 
     /* ── Glow blob ── */
     .blob { position:absolute; border-radius:50%; filter:blur(80px); pointer-events:none; }
+
+    /* ── Avatar glow ring (reliable, class-based) ── */
+    .avatar-glow-wrapper {
+      width: 206px;
+      height: 206px;
+      border-radius: 50%;
+      padding: 3px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #5ecfff 0%, #a78bfa 50%, #5ecfff 100%);
+      background-size: 300% 300%;
+      box-shadow:
+        0 0 10px 2px rgba(94,207,255,.5),
+        0 0 28px 6px rgba(94,207,255,.2),
+        0 0 56px 12px rgba(94,207,255,.08);
+      animation: avatar-glow-anim 3s ease-in-out infinite, avatar-bg-spin 6s linear infinite;
+      position: relative;
+    }
+    .avatar-glow-wrapper img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+    @media(min-width:1024px){
+      .avatar-glow-wrapper { width:262px; height:262px; padding:4px; }
+      .avatar-glow-wrapper img { width:254px; height:254px; }
+    }
+    @keyframes avatar-glow-anim {
+      0%,100% {
+        box-shadow:
+          0 0 10px 2px rgba(94,207,255,.5),
+          0 0 28px 6px rgba(94,207,255,.2),
+          0 0 56px 12px rgba(94,207,255,.08);
+      }
+      50% {
+        box-shadow:
+          0 0 16px 3px rgba(94,207,255,.65),
+          0 0 40px 10px rgba(94,207,255,.28),
+          0 0 80px 20px rgba(94,207,255,.1);
+      }
+    }
+    @keyframes avatar-bg-spin {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ── Timeline slide-in ── */
+    .timeline-item {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .timeline-item.revealed {
+      opacity: 1;
+      transform: translateX(0);
+    }
   </style>
 </head>
 
@@ -266,9 +328,9 @@
 
       <!-- ── Avatar with animated glow border ── -->
       <div class="flex-shrink-0 fade-up" style="animation-delay:.15s">
-        <img src="./assets/avatar.jpg" alt="文思韵"
-             class="w-52 h-52 lg:w-64 lg:h-64 rounded-full object-cover border-4 border-accent/60"
-             style="animation: avatar-glow-anim 3s ease-in-out infinite;">
+        <div class="avatar-glow-wrapper">
+          <img src="./assets/avatar.jpg" alt="文思韵">
+        </div>
       </div>
     </div>
 
@@ -970,6 +1032,21 @@
   }, { threshold: 0.3 });
 
   document.querySelectorAll('#stack').forEach(sec => skillObs.observe(sec));
+
+  /* ── Timeline items slide-in on scroll ── */
+  const timelineObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const items = entry.target.parentElement.querySelectorAll('.timeline-item');
+        const idx = Array.from(items).indexOf(entry.target);
+        entry.target.style.transitionDelay = `${idx * 0.15}s`;
+        entry.target.classList.add('revealed');
+        timelineObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.timeline-item').forEach(el => timelineObs.observe(el));
 </script>
 
 </body>
