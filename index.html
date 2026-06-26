@@ -381,21 +381,17 @@
         <p class="text-slate-300 text-base leading-relaxed">
           我坚信优质产品来源于对用户需求的深度洞察与对技术细节的极致打磨。技术实践横跨多平台：
         </p>
-
-      <!-- Tech pillars 技术支柱 新版高级动态卡片 -->
-<div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Tech pillars 新版统一字体卡片 -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
   <!-- 卡片 01 -->
   <div class="group relative overflow-hidden rounded-xl p-5 bg-[radial-gradient(circle_at_top_left,rgba(94,207,255,0.08),transparent_70%)] bg-card border border-accent/10 transition-all duration-400 hover:-translate-y-2 hover:shadow-lg hover:shadow-accent/15 hover:border-accent/30">
-    <!-- 悬浮渐变光晕层 -->
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(94,207,255,0.05),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"></div>
-    
     <div class="relative flex items-start gap-4">
-      <span class="font-mono text-accent text-xs opacity-60">01.</span>
+      <!-- 删掉 font-mono，字体和页面统一 -->
+      <span class="text-accent text-xs opacity-60">01.</span>
       <div>
-        <h3 class="font-semibold text-white text-lg mb-2">苹果原生跨端研发</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">
-          HealthKit人体数据采集、CoreMotion运动感知、SwiftUI原生界面、Flutter跨端兼容、隐私权限合规开发
-        </p>
+        <h3 class="font-semibold text-white text-lg mb-2 whitespace-nowrap">Apple 生态开发</h3>
+        <p class="text-slate-400 text-sm">HealthKit / CoreMotion / Swift / Flutter</p>
       </div>
     </div>
   </div>
@@ -403,33 +399,29 @@
   <!-- 卡片 02 -->
   <div class="group relative overflow-hidden rounded-xl p-5 bg-[radial-gradient(circle_at_top_left,rgba(94,207,255,0.08),transparent_70%)] bg-card border border-accent/10 transition-all duration-400 hover:-translate-y-2 hover:shadow-lg hover:shadow-accent/15 hover:border-accent/30">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(94,207,255,0.05),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"></div>
-    
     <div class="relative flex items-start gap-4">
-      <span class="font-mono text-accent text-xs opacity-60">02.</span>
+      <span class="text-accent text-xs opacity-60">02.</span>
       <div>
-        <h3 class="font-semibold text-white text-lg mb-2">端侧AI工程化</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">
-          LLM轻量化微调、本地意图识别、离线语音情绪检测、模型端侧部署与性能压缩
-        </p>
+        <h3 class="font-semibold text-white text-lg mb-2 whitespace-nowrap">AI 落地开发</h3>
+        <p class="text-slate-400 text-sm">LLM 微调、意图识别、语音情绪检测</p>
       </div>
     </div>
   </div>
 
-  <!-- 卡片 03 手机通栏、电脑正常单栏 -->
-  <div class="group relative overflow-hidden rounded-xl p-5 bg-[radial-gradient(circle_at_top_left,rgba(94,207,255,0.08),transparent_70%)] bg-card border border-accent/10 transition-all duration-400 hover:-translate-y-2 hover:shadow-lg hover:shadow-accent/15 hover:border-accent/30 col-span-2 lg:col-span-1">
+  <!-- 卡片 03 -->
+  <div class="group relative overflow-hidden rounded-xl p-5 bg-[radial-gradient(circle_at_top_left,rgba(94,207,255,0.08),transparent_70%)] bg-card border border-accent/10 transition-all duration-400 hover:-translate-y-2 hover:shadow-lg hover:shadow-accent/15 hover:border-accent/30">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(94,207,255,0.05),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"></div>
-    
     <div class="relative flex items-start gap-4">
-      <span class="font-mono text-accent text-xs opacity-60">03.</span>
+      <span class="text-accent text-xs opacity-60">03.</span>
       <div>
-        <h3 class="font-semibold text-white text-lg mb-2">轻量化小程序全栈</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">
-          原生性能优化、分包加载、无障碍兼容、全流程工程化打包发布
-        </p>
+        <h3 class="font-semibold text-white text-lg mb-2 whitespace-nowrap">轻量化平台</h3>
+        <p class="text-slate-400 text-sm">微信小程序全流程开发</p>
       </div>
     </div>
   </div>
 </div>
+
+     
 
       <!-- Info card -->
       <div class="lg:col-span-1">
